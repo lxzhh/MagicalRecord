@@ -230,7 +230,7 @@ static NSUInteger defaultBatchSize = kMagicalRecordDefaultBatchSize;
 + (BOOL) MR_deleteAllMatchingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [self MR_requestAllWithPredicate:predicate inContext:context];
-    [request setReturnsObjectsAsFaults:YES];
+    [request setReturnsObjectsAsFaults:NO];
 	[request setIncludesPropertyValues:NO];
     
 	NSArray *objectsToTruncate = [self MR_executeFetchRequest:request inContext:context];
